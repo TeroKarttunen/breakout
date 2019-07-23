@@ -1,0 +1,6 @@
+REQUEST_QUEUE_URL=https://sqs.eu-north-1.amazonaws.com/myaccount/EvaluationRequests
+RESPONSE_QUEUE_URL=https://sqs.eu-north-1.amazonaws.com/myaccount/EvaluationResponses
+COLLATERAL_QUEUE_URL=https://sqs.eu-north-1.amazonaws.com/myaccount/CollateralResponses
+AWS_REGION=eu-north-1
+AWS_ACCESS_KEY_ID=MYACCESSKEYID
+AWS_SECRET_ACCESS_KEY=MYSECRET

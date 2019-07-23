@@ -1,0 +1,16 @@
+version: "3"
+services:
+  requestprocessor:
+# replace username/repo:tag with your name and image details
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    image: requestprocessor
+    env_file: aws_env_file
+    deploy:
+      replicas: 6
+      resources:
+        limits:
+          memory: 300M
+      restart_policy:
+        condition: on-failure

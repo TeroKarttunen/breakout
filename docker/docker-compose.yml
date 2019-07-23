@@ -1,0 +1,13 @@
+version: "3"
+services:
+  requestprocessor:
+# replace image name with your tagged name
+    image: requestprocessor
+    env_file: local_env_file
+    deploy:
+      replicas: 6
+      resources:
+        limits:
+          memory: 300M
+      restart_policy:
+        condition: on-failure

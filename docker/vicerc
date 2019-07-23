@@ -1,0 +1,15 @@
+[C64]
+Window0Height=608
+Window0Width=719
+Window0Xpos=191
+Window0Ypos=192
+Speed=0
+SoundDeviceName="alsa"
+Sound=0
+SoundBufferSize=100
+VICIIVideoCache=1
+VICIIFilter=0
+SidEngine=1
+SidModel=1
+ETHERNETCARTBase=56832
+Acia1Base=56832

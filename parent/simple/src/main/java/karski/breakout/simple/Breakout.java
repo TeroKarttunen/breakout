@@ -72,7 +72,7 @@ public class Breakout {
         
         LOGGER.info("Trying to connect...");
         try {
-        	adapter.connect();
+        	adapter.connect(10000);
         } catch (IOException e) {
         	e.printStackTrace();
             return;

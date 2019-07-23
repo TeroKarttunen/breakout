@@ -9,9 +9,7 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 /**
- * MonitorConnection wraps a TCP/IP socket and encapsulated the network connection. System property or environment variable
- * STARTUP_DELAY specifies how long we should be waiting or retrying the socket connection before giving up; this prevents
- * racing conditions from occurring.
+ * MonitorConnection wraps a TCP/IP socket and encapsulated the network connection.
  * @author tero
  *
  */
@@ -34,39 +32,13 @@ public class MonitorConnection {
     	return connected;
     }
     
-    public void connect() throws IOException {
-    	String startup_delay = System.getProperty("startup_delay");
-    	if (startup_delay == null || startup_delay.equals("")) {
-    		startup_delay = System.getenv("STARTUP_DELAY");
-    	}
-    	
-    	int delay = -1;
-    	if (startup_delay != null && !startup_delay.equals("")) {
-    		delay = Integer.valueOf(startup_delay).intValue();
-    	}
-    	long current = new Date().getTime();
-    	
+    public void connect() throws IOException {   	
     	socketAddress = new InetSocketAddress("localhost", port);
         try {
         	mon = new Socket();
         	mon.connect(socketAddress, 0);
         } catch (IOException e) {
-        	LOGGER.info("IOException while establishing connection: "+e.toString());
-        	boolean established = false;
-        	while (!established && new Date().getTime() - current < delay) {
-        		try {
-        			Thread.currentThread().sleep(500);
-        			mon = new Socket();
-                	mon.connect(socketAddress, 0);
-                	established = true;
-        		} catch (InterruptedException e2) {
-        			
-        		}
-        		catch (IOException e3) {
-        			LOGGER.info("IOException while establishing connection: "+e3.toString());
-        		}
-        	}
-        	if (!established) throw e;
+        	throw e;
         }
         out = new PrintWriter(mon.getOutputStream(), true);
         in = new InputStreamReader(mon.getInputStream());

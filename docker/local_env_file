@@ -1,0 +1,6 @@
+REQUEST_QUEUE_URL=http://myip:9324/queue/EvaluationRequests
+RESPONSE_QUEUE_URL=http://myip:9324/queue/EvaluationResponses
+COLLATERAL_QUEUE_URL=http://myip:9324/queue/CollateralResponses
+AWS_REGION=eu-north-1
+AWS_ACCESS_KEY_ID=fakeAccessKey
+AWS_SECRET_ACCESS_KEY=fakeAccessSecret
