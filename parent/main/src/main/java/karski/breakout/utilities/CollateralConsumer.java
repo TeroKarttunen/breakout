@@ -18,6 +18,11 @@ import karski.breakout.queue.RequestSender;
 import karski.breakout.queue.Response;
 import karski.breakout.queue.ResponsesReceiver;
 
+/**
+ * CollateralConsumer is a utility class for emptying Collateral queue.
+ * @author tero
+ *
+ */
 public class CollateralConsumer implements ResponseListener {
 	
 	private final static Logger LOGGER = Logger.getLogger(CollateralConsumer.class.getName());

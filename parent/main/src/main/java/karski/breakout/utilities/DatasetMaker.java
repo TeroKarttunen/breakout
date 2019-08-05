@@ -14,6 +14,22 @@ import karski.breakout.PossibleMovesCalculator;
 import karski.breakout.PrecalculatedGameState;
 import karski.breakout.Tiles;
 
+/**
+ * DatasetMaker is a utility program for taking a databank dump file (produced with DynamoUtilities "dumptofile") and produces a set of 
+ * XGBoost algorithm input files based on it. The database dump has the following format: 
+ * Move,OriginalState,ResultState,GameTimeDifference
+ * <P>The program produces a set of csv input files with the following columns:
+ * score_difference (resultscore - originalscore)
+ * real (departure angle of ball)
+ * originalstate_hitpointX (ball-bat interception point as x-coordinate)
+ * originalstate_score
+ * byte1-byte120 (one bit per each tile, 0 tai 1)
+ * (SUM of rows 1-6)
+ * (SUM of columns 1-5)
+ * <P>TODO: This version of datamaker has the SUM of rows and SUM of columns information, but BreakoutPredictor currently expects a model
+ * that lacks those attributes.
+ * @author tero
+ */
 public class DatasetMaker {
 
 	public static void main(String[] args) throws Exception {

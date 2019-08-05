@@ -9,6 +9,13 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * BreadthFirstUtility is one of the utility classes for exhaustively exploring the solution space via breadth-first algorithm.
+ * This program can be run after BreadthFirstSolver to prune some branches (nodes) that have identical game state to another node. In this
+ * situation, the node with less game time prevails. CUTOFF variable works like GAMETIME_LIMIT variable in BreadthFirstSolver.
+ * @author tero
+ *
+ */
 public class BreadthFirstUtility {
 
 	public static int COUNTER = 22;
